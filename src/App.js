@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import "./index.css";
+//import "./index.css";
+import "./App.css";
+import "./Components/ActivityCard/ActivityCard";
+import ActivityCard from "./Components/ActivityCard/ActivityCard";
 
 function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(true);
@@ -93,7 +96,24 @@ function App() {
             />
             <h1>Welcome, {formData.firstName} {formData.lastName}!</h1>
           </header>
-          <p>Activities will be displayed here.</p>
+          <div className="centered-container">
+            <h2>Available activities: </h2>
+          </div>
+          <div  className="ActContainer">
+            <ActivityCard
+              title="Calculator programing activity" 
+              description="This activity is for practicing how to deal with operation in python." 
+              image="./ActImages/image1.png"
+              ImgT="Calculator"
+            />
+            <ActivityCard
+              title="Secret Message Encoder activity" 
+              description="The purpose of this activity is to practice handling strings in Python. " 
+              image="./ActImages/image.png"
+              ImgT="Secret Message Encoder"
+            />
+            
+          </div>
         </div>
       )}
     </div>
