@@ -91,15 +91,6 @@
   border: 2px solid #007bff;
 }
 
-.ActContainer{
-  margin-top: 70px;
-  display: flex;
-  gap: 20px; 
-  justify-content: space-evenly; 
-  flex-wrap: wrap; 
-  padding: 16px;
-}
-
 .centered-container {
   position: absolute; 
   width: 100%;
@@ -111,4 +102,14 @@
   /* border-radius: 20px; */
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: 12px;
+}
+
+.ActContainer{
+  width: 100%;
+  margin-top: 70px;
+  display: flex;
+  gap: 20px; 
+  justify-content: space-evenly; 
+  flex-wrap: wrap; 
+  padding: 16px;
 }

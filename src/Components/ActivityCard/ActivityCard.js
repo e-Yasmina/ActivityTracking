@@ -4,7 +4,7 @@ import "./ActivityCard.css";
 const ActivityCard = (props) => {
   return (
     <div className="body">
-    <div className="card">
+    <div className="card" onClick={props.onClick}>
       <div className="container">
         <img
           src={props.image}

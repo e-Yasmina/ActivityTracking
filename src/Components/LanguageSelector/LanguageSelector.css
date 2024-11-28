@@ -1,0 +1,54 @@
+.language-selector {
+    margin-left: 8px;
+    /* margin-bottom: 16px; */
+    display: flex; 
+    flex-direction: row;
+    justify-self: start;
+  }
+  
+  .language-selector label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.125rem;
+  }
+  
+  .language-selector button {
+    padding: 8px 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #e2e8f0;
+    border: 1px solid #cbd5e0;
+    border-radius: 4px;
+  }
+  
+  .language-selector ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background-color: #1a202c;
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+    border: 1px solid #2d3748;
+    border-radius: 4px;
+    z-index: 1000;
+  }
+  
+  .language-selector li {
+    padding: 8px 16px;
+    cursor: pointer;
+    color: #e2e8f0;
+    background-color: transparent;
+  }
+  
+  .language-selector li:hover {
+    color: #4299e1;
+    background-color: #2d3748;
+  }
+  
+  .language-selector li.active {
+    color: #4299e1;
+    background-color: #2d3748;
+  }
+  
