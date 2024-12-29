@@ -1,54 +1,71 @@
-.language-selector {
-    margin-left: 8px;
-    /* margin-bottom: 16px; */
-    display: flex; 
-    flex-direction: row;
-    justify-self: start;
-  }
+.language-selector { 
+  margin-left: 8px;
+  /* margin-bottom: 16px; */
   
-  .language-selector label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 1.125rem;
-  }
-  
-  .language-selector button {
-    padding: 8px 12px;
-    font-size: 1rem;
-    cursor: pointer;
-    background-color: #e2e8f0;
-    border: 1px solid #cbd5e0;
-    border-radius: 4px;
-  }
-  
-  .language-selector ul {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    display: none;
-    background-color: #1a202c;
-    list-style: none;
-    padding: 8px 0;
-    margin: 0;
-    border: 1px solid #2d3748;
-    border-radius: 4px;
-    z-index: 1000;
-  }
-  
-  .language-selector li {
-    padding: 8px 16px;
-    cursor: pointer;
-    color: #e2e8f0;
-    background-color: transparent;
-  }
-  
-  .language-selector li:hover {
-    color: #4299e1;
-    background-color: #2d3748;
-  }
-  
-  .language-selector li.active {
-    color: #4299e1;
-    background-color: #2d3748;
-  }
-  
+}
+
+.label {
+  display: inline;
+  margin-bottom: 8px;
+  font-size: 18px;
+  color:beige;
+}
+
+.menu {
+  display: inline;
+  position: relative;
+}
+
+.menu-button {
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 140px;
+  padding: 8px 16px;
+  background-color: #2d3748;
+  color: white;
+  border: 1px solid #4a5568;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.menu-list {
+  margin-top: 10px;
+  margin-left: 10px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #1a202c;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 1;
+  width: auto;
+}
+
+.menu-button:focus + .menu-list,
+.menu-list:hover {
+  display: block;
+}
+
+.menu-item {
+  padding: 8px 16px;
+  color: #e2e8f0;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.menu-item.active {
+  background-color: #2d3748;
+  color: #3182ce;
+}
+
+.menu-item:hover {
+  background-color: #2d3748;
+  color: #3182ce;
+}
+
+.version {
+  font-size: 12px;
+  color: #a0aec0;
+}

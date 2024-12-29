@@ -1,27 +1,19 @@
 .output-container {
-    width: 500px;
-    margin-top: -200px;
-}
-.output-label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 1.125rem;
-}
-.run-button {
-    display: flex;
-    justify-content: flex-end;
-}
-  
-.run-button:disabled {
-    cursor: not-allowed;
-    opacity: 0.7;
+    width: 850px;
+    height: 31vh;
+    padding: 5px;
+    margin-bottom: 10px;
+    justify-content: center;
+    background-color: #2d3748;
+    border-radius: 10px;
+    box-shadow:4px 4px 6px #4a5568;
 }
   
 .output-box {
-    height: 30vh;
-    /* padding: 8px; */
+    padding: 10px;
+    height: 27vh;
     border: 1px solid #333;
-    /* border-radius: 4px; */
+    border-radius: 10px; 
     background-color: #f9f9f9;
     /* overflow-y: auto; */
     color: #000;
