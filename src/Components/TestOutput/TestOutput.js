@@ -6,7 +6,7 @@ const TestOutput = ({ output }) => {
     <div className="test-output-container">
       <div className="test-output-box">
         {output && output.length > 0 ? (
-          output.map((line, i) => (
+          output.split("\n").map((line, i) => (
             <p
               key={i}
               className={

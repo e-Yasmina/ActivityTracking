@@ -6,7 +6,8 @@
     justify-content: center;
     background-color: #2d3748;
     border-radius: 10px;
-    box-shadow:4px 4px 6px #4a5568;
+    box-shadow:-4px 4px 6px #4a5568;
+    margin-left: 6px;
 }
   
 .output-box {

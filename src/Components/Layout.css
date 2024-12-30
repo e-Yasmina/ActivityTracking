@@ -24,6 +24,12 @@
     margin-top:15px;
 
 }
+
+.btns{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
 .btn{
     margin-top: 10px;
     width: 200px;
@@ -38,10 +44,43 @@
     border-radius:5px;
     transition: background-color 0.3s ease;
   } 
-.btns{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+.btn:hover{
+    background-color:#ffbf5e;
+    border: 1px solid #ff9800;
+}
+.instructions-btn{
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 180px;
+    height: 36px;
+    padding: 8px 16px;
+    background-color: #1cac3b;
+    color: white;
+    border: 1px solid #34f85e;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.instructions-btn:hover{
+    background-color: #34f85e;
+    border: 1px solid #1cac3b;
+}
+.test-button{
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 140px;
+    height: 36px;
+    padding: 8px 16px;
+    background-color: #2d3748;
+    color: white;
+    border: 1px solid #4a5568;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.test-button:hover{
+    background-color: #4a5568;
+    border: 1px solid #2d3748;
 }
 .run-button {
     justify-self: end;
@@ -49,34 +88,9 @@
     margin-right: 25px;
     /* margin-top: 10px; */
 }
-  
+
 .run-button:disabled {
     cursor: not-allowed;
     opacity: 0.7;
 }
-.test-button{
-  margin-left: 10px;
-  margin-top: 10px;
-  width: 140px;
-  height: 36px;
-  padding: 8px 16px;
-  background-color: #2d3748;
-  color: white;
-  border: 1px solid #4a5568;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
-.instructions-btn{
-  margin-left: 10px;
-  margin-top: 10px;
-  width: 200px;
-  height: 36px;
-  padding: 8px 16px;
-  background-color: #337942;
-  color: white;
-  border: 1px solid #4a5568;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
+

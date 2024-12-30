@@ -52,7 +52,11 @@ const CodeEditorLayout = ({id, setView}) => {
       
       if (executeTestCode) {
         const { run: result } = await executeTestCode(language, sourceCode, id);
-        settestOutput(result.output.split("\n"));
+        settestOutput(result.output.split("\n").filter(
+          (line) =>
+            line.includes("Test succeeded") || line.includes("Test failed") || line.includes("AssertionError")
+        )
+        .join("\n"));
         evaluateTestOutput(result.output.split("\n"));
         setIsError(!!result.stderr); // Simplified the condition
       } else {
