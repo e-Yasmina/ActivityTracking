@@ -1,0 +1,57 @@
+/* Container for the activity */
+.activity2-container {
+    padding-top: 40px;
+    width: 400px;
+    height: 350px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #414850;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  /* List container */
+  .list-animation {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Individual list items */
+  .list-item {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e9ecef;
+    border: 2px solid #dee2e6;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+  }
+  
+  /* Highlight the "stranger" element */
+  .list-item.highlight {
+    background-color: #ff6b6b;
+    color: white;
+    transform: scale(1.1);
+    border-color: #fa5252;
+  }
+  
+  /* Result box */
+  .result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+  }
+  
+  .stranger {
+    font-weight: bold;
+    color: #ff6b6b;
+  }
+  

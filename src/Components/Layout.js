@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { executeCode } from "../api";
-import { executeTestCode } from "../testApi";
+import { executeTestCode} from "../testApi";
 import LanguageSelector from "./LanguageSelector/LanguageSelector";
 import { CODE_SNIPPETS } from "../constants";
 import Output from "./Output/Output";
@@ -8,9 +8,11 @@ import CodeEditor from "./CodeEditor/CodeEditor";
 import PlayIcon from "./Buttons/PlayIcon";
 import TestOutput from "./TestOutput/TestOutput";
 import Calculator from "./Calculator/Calculator";
+import ActivityExplanation from "./ActivitiesUIs/Activity2";
+import InstructionsModal from "./Instructions/Instructions";
 import "./Layout.css";
 
-const CodeEditorLayout = () => {
+const CodeEditorLayout = ({id, setView}) => {
   const editorRef = useRef();
   const [value, setValue] = useState(""); // Stores the current code in the editor
   const [language, setLanguage] = useState("python"); // Tracks the selected language
@@ -18,7 +20,9 @@ const CodeEditorLayout = () => {
   const [testoutput, settestOutput] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  
+  const [isVisible, setIsVisible] = useState(false);
+  const [isCalculatorEnabled, setIsCalculatorEnabled] = useState(false);
+ 
 
   // Called when the user selects a new language
   const onSelect = (language) => {
@@ -44,38 +48,76 @@ const CodeEditorLayout = () => {
   const testCode = async () => {
     const sourceCode = editorRef.current.getValue();
     if (!sourceCode) return;
-  
     try {
-      const { run: result } = await executeTestCode(language, sourceCode);
-      settestOutput(result.output.split("\n"));
-      setIsError(!!result.stderr); // Simplified the condition
+      
+      if (executeTestCode) {
+        const { run: result } = await executeTestCode(language, sourceCode, id);
+        settestOutput(result.output.split("\n"));
+        evaluateTestOutput(result.output.split("\n"));
+        setIsError(!!result.stderr); // Simplified the condition
+      } else {
+        throw new Error("Invalid ID or corresponding function not found.");
+      }
     } catch (error) {
       console.error("An error occurred:", error.message || "Unable to run code");
       alert(error.message || "An error occurred while running the code.");
     }
   };
+  // Display the instruction model
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
+
+  const evaluateTestOutput = (testoutput) => {
+    // Define the success conditions
+    const successMessages = [
+      "Test succeeded for addition",
+      "Test succeeded for subtraction",
+      "Test succeeded for multiplication",
+      "Test succeeded for division",
+    ];
+
+    // Check if all success messages are present in the output
+    const allTestsPassed = successMessages.every((msg) =>
+      testoutput.includes(msg)
+    );
+
+    // Update the state if all tests pass
+    if (allTestsPassed) {
+      setIsCalculatorEnabled(true);
+    } else {
+      setIsCalculatorEnabled(false);
+    }
+  };
   
 
   return (
+    <>
+    {isVisible && <InstructionsModal id={id}/>}
+    
     <div className="code-editor-container">
       <div className="code-editor-ui">
       <div className="code-editor-section">
         <div className="btns">
+          <button onClick={() => setView("activities")} className="btn"> &lt; Back to Activities</button>
           <LanguageSelector language={language} onSelect={onSelect} />
+          <button className="instructions-btn" onClick={toggleVisibility}>Show Instructions</button>
           <button className="test-button" onClick={testCode}>Run testCases</button>
           <div className="run-button" onClick={runCode}>
             <PlayIcon/>
           </div>
         </div>
-        <CodeEditor language={language} editorRef={editorRef}/>
+        <CodeEditor language={language} editorRef={editorRef} id={id}/>
       </div>
-      <Calculator/>
+      { id === 1 && <Calculator isEnabled={isCalculatorEnabled} /> }
+      { id === 2 && <ActivityExplanation /> }
       </div> 
       <div className="output-section">
         <Output editorRef={editorRef} language={language} output={output}/>
-        <TestOutput editorRef={editorRef} language={language} output={testoutput}/>
+        <TestOutput editorRef={editorRef} language={language} output={testoutput} />
       </div>
     </div>
+    </>
   );
 };
 

@@ -23,24 +23,26 @@ function App() {
     avatar: "",
   });
   const activities = [
-    {
+    { 
+      id:1,
       title:"Calculator programing activity",
       description:"This activity is for practicing how to deal with operation in python.",
       image:"./ActImages/image1.png",
       ImgT:"Calculator",
     },
+    {  
+      id:2,
+      title:"Identify the stranger element",
+      description:"The purpose of this activity is to practice handling lists in Python. ",
+      image:"./ActImages/image2.png",
+      ImgT:"python lists",
+    },
     {
+      id: 3,
       title:"Secret Message Encoder activity",
       description:"The purpose of this activity is to practice handling strings in Python. ",
       image:"./ActImages/image3.png",
       ImgT:"Secret Message Encoder",
-    },
-    {
-      id: 3,
-      image: "/Images/activity3.png",
-      ImgT: "Activity 3",
-      title: "Activity 3",
-      description: "Description for Activity 3",
     },
   ];
 
@@ -150,9 +152,8 @@ function App() {
       {step === 3 && view === "activityDetail" && selectedActivity && (
         <>
         <div className="activity-page">
-          <CodeEditorLayout />
-          {/* <LanguageSelector language={language} onSelect={onSelect} /> */}
-          {/* <button onClick={() => setView("activities")} className="btn"> Back to Activities </button> */}
+          <CodeEditorLayout id={selectedActivity.id}  setView={setView}/>
+          
         </div>
         </>
       )}

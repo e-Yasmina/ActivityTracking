@@ -5,11 +5,12 @@
     background-color: #2d3748;
     border-radius: 10px;
     box-shadow:4px 4px 6px #4a5568;
+    
 }
   
 .test-output-box {
-    padding: 10px;
-    height: 27vh;
+    /* padding: 10px; */
+    height: 30vh;
     border: 1px solid #333;
     border-radius: 10px;
     background-color: #4a5568;
@@ -21,6 +22,7 @@
     border-color: #e53e3e;
     color: #e53e3e;
 }
+
 
 .success-line {
     background-color: #d4edda; /* Light green background */
