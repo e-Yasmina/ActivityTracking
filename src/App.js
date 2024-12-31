@@ -3,8 +3,9 @@ import "./App.css";
 import "./Components/ActivityCard/ActivityCard";
 import ActivityCard from "./Components/ActivityCard/ActivityCard";
 import CodeEditorLayout from "./Components/Layout";
-
+import {Helmet} from "react-helmet";
 import { CODE_SNIPPETS } from "./constants";
+
 function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(true);
   const [step, setStep] = useState(1); // Tracking the current step
@@ -80,6 +81,12 @@ function App() {
   };
 
   return (
+    <>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Python activities</title>
+      <link rel="canonical" href="http://pythonactivitis.com/" />
+    </Helmet>
     <div>
       {step === 1 && (
         <div className="popup">
@@ -159,6 +166,7 @@ function App() {
       )}
            
     </div>
+    </>
   );
 }
 

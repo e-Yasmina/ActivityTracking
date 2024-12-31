@@ -14,6 +14,8 @@ const TestOutput = ({ output }) => {
                   ? "success-line"
                   : line.includes("failed")
                   ? "failure-line"
+                  : line.includes("Error")
+                  ? "error-output "
                   : ""
               }
               style={{ margin: "0 0 4px", padding: "4px" }}
@@ -22,7 +24,7 @@ const TestOutput = ({ output }) => {
             </p>
           ))
         ) : (
-          <p>Click "Run testCases" to run tests</p>
+          <p>Click "Run testCases" to run the tests</p>
         )}
       </div>
     </div>
