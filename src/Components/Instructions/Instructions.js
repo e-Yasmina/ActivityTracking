@@ -62,10 +62,15 @@ for item in generated_list:
       { step: "Step 7", explanation: "Now you can move to the next activity."}
     ],
     3: [
-      { step: "Step 1", explanation: "Create an account or log in." },
-      { step: "Step 2", explanation: "Fill out your personal details." },
-      { step: "Step 3", explanation: "Confirm your email address." },
-      { step: "Step 4", explanation: "Start using the app." }
+      { step: "Step 1", explanation: "In this activity, you will practice the different Python operations you can apply to strings.\nThis will be done through playing a game: 'password generator'.\nTo generate powerful code, you will simply handle a group of words that are normally chosen by the user.\nFinally, you will challenge the computer, and the objective is to maximize its time to reveal the code." },
+      { step: "Step 2", explanation: `This function asks the user to enter a specific input:
+    - First word: 4 uppercase letters
+    - Second word: 4 lowercase letters
+    - Third word: 4 numbers
+    - Fourth word: 4 special characters
+    It then generates a secret code by slicing, repeating, and concatenating parts of the input.`},
+      { step: "Step 3", explanation: "It is your responsibility to add the lines of code that do the slicing, repetition, and concatenation.\nYou can change the code and add more operations as you wish, but just remember the goal is to create a powerful code." },
+      { step: "Step 4", explanation: "Test your program and display the code to see if everythin is working as wanted" }
     ]
   };
 

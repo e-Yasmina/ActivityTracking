@@ -10,7 +10,9 @@ import TestOutput from "./TestOutput/TestOutput";
 import Calculator from "./Calculator/Calculator";
 import ActivityExplanation from "./ActivitiesUIs/Activity2";
 import InstructionsModal from "./Instructions/Instructions";
+import PasswordGuesser from "./ActivitiesUIs/Activity3";
 import "./Layout.css";
+
 
 const CodeEditorLayout = ({id, setView}) => {
   const editorRef = useRef();
@@ -99,9 +101,8 @@ const CodeEditorLayout = ({id, setView}) => {
     <>
     {isVisible && <InstructionsModal id={id}/>}
     
-    <div className="code-editor-container">
-      <div className="code-editor-ui">
-      <div className="code-editor-section">
+    <div className="activity-page-container">
+      <div className="code-editor-container">
         <div className="btns">
           <button onClick={() => setView("activities")} className="btn"> &lt; Back to Activities</button>
           <LanguageSelector language={language} onSelect={onSelect} />
@@ -110,15 +111,21 @@ const CodeEditorLayout = ({id, setView}) => {
           <div className="run-button" onClick={runCode}>
             <PlayIcon/>
           </div>
-        </div>
-        <CodeEditor language={language} editorRef={editorRef} id={id}/>
       </div>
-      { id === 1 && <Calculator isEnabled={isCalculatorEnabled} /> }
-      { id === 2 && <ActivityExplanation /> }
-      </div> 
-      <div className="output-section">
-        <Output editorRef={editorRef} language={language} output={output}/>
-        <TestOutput editorRef={editorRef} language={language} output={testoutput} />
+
+      <div className="code-editor-section" >
+          <CodeEditor language={language} editorRef={editorRef} id={id}/>
+          <Output editorRef={editorRef} language={language} output={output}/>
+        </div>
+      </div>
+        
+      <div className="ui-tests-section">
+      <PasswordGuesser/>
+        { id === 1 && <Calculator isEnabled={isCalculatorEnabled} /> }
+        { id === 2 && <ActivityExplanation /> }
+        {/* { id === 3 && <PasswordGuesser/>} */}
+        { id === 3 && <PasswordGuesser password={output}/>}
+        { (id===1 || id === 2) && <TestOutput editorRef={editorRef} language={language} output={testoutput} />}
       </div>
     </div>
     </>

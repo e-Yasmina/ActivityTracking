@@ -1,31 +1,33 @@
-.code-editor-container {
+.activity-page-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 100vh; 
     overflow: hidden;
+}
+.code-editor-container{
+    display: flex;
+    flex-direction: column;
 }
   
 .code-editor-section { 
     /* flex: 1; */
     z-index: 10;
-    margin-top:15px;
-
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 } 
-.code-editor-ui{
-    display: flex;
-    flex-direction: row;
-}
-.output-section {
-    display: flex;
-    flex-direction: row; 
+
+.ui-tests-section {
+    /* display: flex; */
+    /* flex-direction: column;  */
     gap: 16px;   
     /* flex: 1; */
     z-index: 10;
-    margin-top:15px;
 
 }
 
 .btns{
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
     width: 100%;

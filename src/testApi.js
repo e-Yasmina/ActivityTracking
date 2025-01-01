@@ -62,6 +62,35 @@ def test_find_stranger():
 
 
 # Run the tests
+test_find_stranger()`,
+3:`
+def test_find_stranger():
+    try:
+        # Test case for same_type
+        lst = [42, 42, 42, "banana", 42]
+        assert find_stranger(lst) == "banana", "Test failed for same_type"
+        print("Test succeeded for same_type")
+    except AssertionError as e:
+        print(e)
+
+    try:
+        # Test case for same_value
+        lst = [7, 7, 7, 4, 7]
+        assert find_stranger(lst) == 4, "Test failed for same_value"
+        print("Test succeeded for same_value")
+    except AssertionError as e:
+        print(e)
+
+    try:
+        # Test case for same_length
+        lst = [[0, 0], [0, 0], [0, 0], [0]]
+        assert find_stranger(lst) == [0], "Test failed for same_length"
+        print("Test succeeded for same_length")
+    except AssertionError as e:
+        print(e)
+
+
+# Run the tests
 test_find_stranger()`
 }
 export const executeTestCode = async (language, sourceCode,id) => {
@@ -78,8 +107,7 @@ export const executeTestCode = async (language, sourceCode,id) => {
       },
     ],
   });
-  // Filter only "Test succeeded" or "Test failed" lines
-   // Return the filtered output for clean display  
+ 
 
   return response.data;
 };
