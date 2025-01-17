@@ -19,22 +19,22 @@ special_chars=""
 def generate_secret_code(uppercase, lowercase, numbers, special_chars):
   """
   This function generates a secret code based on the given inputs:
-  - First word: 4 uppercase letters
-  - Second word: 4 lowercase letters
-  - Third word: 4 numbers
-  - Fourth word: 4 special characters
+  - First word: 2 uppercase letters
+  - Second word: 2 lowercase letters
+  - Third word: 2 numbers
+  - Fourth word: 2 special characters
 
   It performs validation and then generates a secret code by slicing,
   repeating, and concatenating parts of the input.
   """
   # Validate the inputs
-  if not (len(uppercase) == 4 and uppercase.isupper()):
+  if not (len(uppercase) == 2 and uppercase.isupper()):
     raise ValueError("Erreur : veuillez entrer exactement 4 lettres majuscules.")
-  if not (len(lowercase) == 4 and lowercase.islower()):
+  if not (len(lowercase) == 2 and lowercase.islower()):
     raise ValueError("Erreur : veuillez entrer exactement 4 lettres minuscules.")
-  if not (len(numbers) == 4 and numbers.isdigit()):
+  if not (len(numbers) == 2 and numbers.isdigit()):
     raise ValueError("Erreur : veuillez entrer exactement 4 chiffres.")
-  if not (len(special_chars) == 4 and all(not c.isalnum() for c in special_chars)):
+  if not (len(special_chars) == 2 and all(not c.isalnum() for c in special_chars)):
     raise ValueError("Erreur : veuillez entrer exactement 4 caractères spéciaux.")
     
   # Combine all parts into one phrase
@@ -51,6 +51,11 @@ def generate_secret_code(uppercase, lowercase, numbers, special_chars):
 
   # Return the secret code
   return secret_code
+print(generate_secret_code(uppercase, lowercase, numbers, special_chars))
+print(uppercase)
+print(lowercase)
+print(numbers)
+print(special_chars)
 `};
 // export const CODE_SNIPPETS = {
 //   javascript: `\nfunction greet(name) {\n\tconsole.log("Hello, " + name + "!");\n}\n\ngreet("Alex");\n`,

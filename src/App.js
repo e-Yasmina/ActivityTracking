@@ -158,10 +158,7 @@ function App() {
       )}
       {step === 3 && view === "activityDetail" && selectedActivity && (
         <>
-        <div className="activity-page">
           <CodeEditorLayout id={selectedActivity.id}  setView={setView}/>
-          
-        </div>
         </>
       )}
            

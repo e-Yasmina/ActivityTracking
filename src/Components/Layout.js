@@ -111,21 +111,19 @@ const CodeEditorLayout = ({id, setView}) => {
           <div className="run-button" onClick={runCode}>
             <PlayIcon/>
           </div>
-      </div>
-
-      <div className="code-editor-section" >
+        </div>
+        <div className="code-editor-section" >
           <CodeEditor language={language} editorRef={editorRef} id={id}/>
           <Output editorRef={editorRef} language={language} output={output}/>
         </div>
       </div>
         
       <div className="ui-tests-section">
-      <PasswordGuesser/>
         { id === 1 && <Calculator isEnabled={isCalculatorEnabled} /> }
         { id === 2 && <ActivityExplanation /> }
-        {/* { id === 3 && <PasswordGuesser/>} */}
-        { id === 3 && <PasswordGuesser password={output}/>}
-        { (id===1 || id === 2) && <TestOutput editorRef={editorRef} language={language} output={testoutput} />}
+        {/* { id === 3 && <PasswordGuesser password={output} uppercase={uppercase} lowercase={lowercase} numbers={numbers} special_chars={special_chars}/>} */}
+        { id === 3 && <PasswordGuesser inputs={output}/>}
+        { (id === 1 || id === 2) && <TestOutput editorRef={editorRef} language={language} output={testoutput} />}
       </div>
     </div>
     </>

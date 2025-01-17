@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Activity3.css";
 
-const PasswordGuesser = ({ password }) => {
+const PasswordGuesser = ({inputs}) => {
   const [currentGuess, setCurrentGuess] = useState("");
   const [attempts, setAttempts] = useState(0);
   const [isGuessed, setIsGuessed] = useState(false);
@@ -9,8 +9,11 @@ const PasswordGuesser = ({ password }) => {
   const [elapsedTime, setElapsedTime] = useState(0);
 
   useEffect(() => {
-    //if (!password) return;
-    const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[]{}|;:'\",.<>?/`~\\";
+    if (!inputs) return;
+    const [password,uppercase, lowercase, numbers, special_chars] = inputs;
+
+    //const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[]{}|;:'\",.<>?/`~\\";
+    const characters = uppercase+lowercase+numbers+special_chars;
     let guess = "";
 
     const startTimer = () => setStartTime(Date.now());
@@ -24,6 +27,10 @@ const PasswordGuesser = ({ password }) => {
         if (guess === password) {
           setIsGuessed(true);
           setElapsedTime(((Date.now() - startTime) / 1000).toFixed(2));
+        } else if (guess.length >= 8) {
+          // Reset guess if it exceeds 16 characters
+          guess = "";
+          setTimeout(guessPassword, 50); // Delay for the animation
         } else {
           setTimeout(guessPassword, 50); // Delay for the animation
         }
@@ -33,7 +40,7 @@ const PasswordGuesser = ({ password }) => {
     // Start guessing on component mount
     startTimer();
     guessPassword();
-  }, [password, isGuessed, startTime]);
+  }, [inputs, isGuessed]);
 
   return (
     <div className="password-guesser">

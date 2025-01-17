@@ -1,17 +1,18 @@
 .password-guesser {
     width: 400px;
-    height: 580px;
+    height:100%;
     border: 2px solid #ccc;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom, #f5f5f5, #ddd);
+    background: linear-gradient(to bottom, #a7a5a5, #d1d1d1);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: Arial, sans-serif;
     overflow: hidden;
-    margin-top: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     box-shadow:-4px 4px 6px #4a5568;
   }
   

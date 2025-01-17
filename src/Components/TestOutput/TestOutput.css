@@ -1,7 +1,7 @@
 .test-output-container {
     width: 400px;
     padding: 5px;
-    height: 31vh;
+    height: 31%;
     background-color: #2d3748;
     border-radius: 10px;
     box-shadow:-4px 4px 6px #4a5568;
@@ -16,10 +16,10 @@
     color: #000;
 }
   
-.test-output-box.error {
+/* .test-output-box.error {
     border-color: #e53e3e;
     color: #e53e3e;
-}
+} */
 
 
 .success-line {
@@ -39,7 +39,7 @@
     color: #e53e3e;
     background-color: #f8d7da;
     width: 98%;
-    height: 99%;
+    height: 95%;
     border-radius: 10px;
     padding: 10px;
 }

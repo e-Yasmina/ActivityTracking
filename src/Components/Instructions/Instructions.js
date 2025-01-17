@@ -8,11 +8,7 @@ const InstructionsModal = ({ id }) => {
   // Different instruction sets based on the id
   const instructionsList = {
     1: [
-      {
-        step: "Step 1",
-        explanation:
-          "In this activity, we will practice operations in Python. \nThere are four functions here: add, subtract, multiply, and divide."
-      },
+      {step: "Step 1", explanation: "In this activity, we will practice operations in Python. \nThere are four functions here: add, subtract, multiply, and divide."},
       {
         step: "Step 2",
         explanation: `Each function must have a return statement, like the following example for addition:
@@ -23,24 +19,10 @@ def add(x, y):
 
 Simply, the return statement here is "return x + y" to calculate the sum of x and y.`
       },
-      {
-        step: "Step 3",
-        explanation:
-          "You can run your code if you have added the correct return statement for each function.\nFeel free to add some lines to test if each function is working appropriately."
-      },
-      {
-        step: "Step 4",
-        explanation: "Finally, you can run the test cases."
-      },
-      {
-        step: "Step 5",
-        explanation:
-          "Upon passing all test cases, the calculator will be enabled and available for use.\nIf not, you can try again."
-      },
-      {
-        step: "Step 6",
-        explanation: "Now you can move to the next activity."
-      }
+      {step: "Step 3", explanation: "You can run your code if you have added the correct return statement for each function.\nFeel free to add some lines to test if each function is working appropriately."},
+      {step: "Step 4", explanation: "Finally, you can run the test cases."},
+      {step: "Step 5", explanation: "Upon passing all test cases, the calculator will be enabled and available for use.\nIf not, you can try again."},
+      {step: "Step 6", explanation: "Now you can move to the next activity."}
     ],
     2: [
       { step: "Step 1", explanation: "You will practice handling lists in this activity.\nThe goal is to write code to identify the 'stranger' element from the list.\nThe provided program is responsible for generating the list, while you have to write the logic to detect the odd one out." },
@@ -64,10 +46,10 @@ for item in generated_list:
     3: [
       { step: "Step 1", explanation: "In this activity, you will practice the different Python operations you can apply to strings.\nThis will be done through playing a game: 'password generator'.\nTo generate powerful code, you will simply handle a group of words that are normally chosen by the user.\nFinally, you will challenge the computer, and the objective is to maximize its time to reveal the code." },
       { step: "Step 2", explanation: `This function asks the user to enter a specific input:
-    - First word: 4 uppercase letters
-    - Second word: 4 lowercase letters
-    - Third word: 4 numbers
-    - Fourth word: 4 special characters
+    - First word: 2 uppercase letters
+    - Second word: 2 lowercase letters
+    - Third word: 2 numbers
+    - Fourth word: 2 special characters
     It then generates a secret code by slicing, repeating, and concatenating parts of the input.`},
       { step: "Step 3", explanation: "It is your responsibility to add the lines of code that do the slicing, repetition, and concatenation.\nYou can change the code and add more operations as you wish, but just remember the goal is to create a powerful code." },
       { step: "Step 4", explanation: "Test your program and display the code to see if everythin is working as wanted" }
