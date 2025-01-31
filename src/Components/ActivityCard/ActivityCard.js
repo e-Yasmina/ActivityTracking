@@ -7,6 +7,7 @@ const ActivityCard = (props) => {
     <div className="card" onClick={props.onClick}>
       <div className="container">
         <img
+          className="activity-image"
           src={props.image}
           alt={props.ImgT}
         />

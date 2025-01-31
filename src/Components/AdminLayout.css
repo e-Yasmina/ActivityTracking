@@ -1,0 +1,25 @@
+.admin-layout {
+    width: 100vw; 
+    height: 100vh;
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    background-color: #161540;
+    background-size: cover;
+    overflow: hidden;
+}
+.chart-container{
+    display: flex;
+    width: 60%;
+    height: 60%;
+    padding: 5%;
+    border: 2px solid rgba(235, 235, 235, .35);
+    border-radius: 20px;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: 12px;
+    background: rgba(187, 205, 189, .25);
+    transition: all .25s ease;
+    position: absolute;
+    left: 2%;
+    top: 15%;
+}

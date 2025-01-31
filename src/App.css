@@ -36,7 +36,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   z-index: 1000;
-  animation: popupAnimation 5s ease-out;
+  animation: popupAnimation 3s ease-out;
 }
 
 .popup input {
@@ -114,6 +114,23 @@
   flex-wrap: wrap; 
   padding: 0px 60px 0px 65px;
 }
+.admin-button {
+  position: absolute;
+  /* top: 0.5rem; 
+  right: 0.5rem;  */
+  padding: 0.5rem;  
+  bottom: 0.5rem;
+  background: transparent; 
+  border-radius: none;
+  border: none; 
+  cursor: pointer; 
+}
+.admin-image{
+  width: 2.5rem; 
+  height: 2.5rem;
+  object-fit: cover; 
+}
+
 /* .activity-page{
   width: 100vw; 
   height: 100vh;
