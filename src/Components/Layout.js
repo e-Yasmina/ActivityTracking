@@ -14,7 +14,7 @@ import PasswordGuesser from "./ActivitiesUIs/Activity3";
 import "./Layout.css";
 
 
-const CodeEditorLayout = ({id, setView}) => {
+const CodeEditorLayout = ({id, setView, userKey}) => {
   const editorRef = useRef();
   const [value, setValue] = useState(""); // Stores the current code in the editor
   const [language, setLanguage] = useState("python"); // Tracks the selected language
@@ -24,6 +24,20 @@ const CodeEditorLayout = ({id, setView}) => {
   const [isError, setIsError] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isCalculatorEnabled, setIsCalculatorEnabled] = useState(false);
+  const [user, setUser] = useState(null);
+  const [score, setScore] = useState([]);
+  const [time, setTime] = useState([]);
+ 
+
+  fetch(`https://api-group-2ivdajogp-yasminas-projects-8e49fc39.vercel.app/user/${userKey}`)
+  .then(response => response.json())
+  .then(data => {
+    console.log("User Data:", data);
+    setUser(data); 
+    setScore(data.score); 
+    setTime(data.time);
+  }).catch(error => console.error("Error:", error));
+
  
 
   // Called when the user selects a new language

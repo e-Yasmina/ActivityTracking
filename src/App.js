@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import "./Components/ActivityCard/ActivityCard";
@@ -7,9 +7,11 @@ import CodeEditorLayout from "./Components/Layout";
 import {Helmet} from "react-helmet";
 import { CODE_SNIPPETS } from "./constants";
 import AdminLayout from "./Components/AdminLayout";
+import api from "./apiServices";
 
 function App() {
-  const [isPopupOpen, setIsPopupOpen] = useState(true);
+  
+  //const [isPopupOpen, setIsPopupOpen] = useState(true);
   const [step, setStep] = useState(1); // Tracking the current step
   const [admin, setAdmin] = useState(false);
   const [adminPassword, setAdminPassword] = useState("");
@@ -18,10 +20,16 @@ function App() {
 
   const [selectedActivity, setSelectedActivity] = useState(null);
   const [view, setView] = useState("activities"); // Track the current view
-
+  
   //const [language, setLanguage] = useState("javascript");
   const [value, setValue] = useState("");
   const [language, setLanguage] = useState("python");
+  const [userKey, setUserKey] = useState("");
+
+  const [startTime, setStartTime] = useState(null);
+  const [endTime, setEndTime] = useState(null);
+  const [liveActivity, setLiveActivity] = useState(null);
+  
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -79,6 +87,7 @@ function App() {
     setAdminPopup(true);
     setStep(0);
   };
+  
   // Handling avatar selection
   const handleAvatarSelect = (avatar) => {
     setFormData({ ...formData, avatar });
@@ -89,6 +98,8 @@ function App() {
   const handleActivityClick = (activity) => {
     setSelectedActivity(activity); 
     setView("activityDetail"); // Change the view to show the activity details
+    setStartTime(Date.now()); // Capture start time
+    setLiveActivity(activity.id); // Track the current activity
   };
   
   const onSelect = (language) => {
@@ -100,34 +111,37 @@ function App() {
     e.preventDefault();
     if (formData.firstName && formData.lastName) {
       setStep(2); // Moving to step 2
-      try {
-        // Replace the URL with your deployed Vercel API endpoint
-        const apiUrl = "https://api-group.vercel.app/user";
-  
-        // Using Axios
-        const response = await axios.post(apiUrl, { 
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-         });
-  
-        // Handle success
-        console.log(response.data);
-      } catch (error) {
-        // Handle errors
-        console.error(error);
-      }
-    } 
-    
-    else {
+      api.addUser(formData, setUserKey);
+    }else {
       alert("Please fill out both fields!");
     }
   };
+  const TrackableComponent = ({ componentName, content }) => {
+    useEffect(() => {
+      console.log(`${componentName} mounted`);
+  
+      return () => {
+        console.log(`${componentName} unmounted`);
+        setEndTime(Date.now()); // Capture end time
+        setLiveActivity(null); // Reset the current activity
+        const timeSpent = endTime - startTime;
+      };
+    }, []);
+  
+    useEffect(() => {
+      console.log(`${componentName} content changed to: ${content}`);
+    }, [content]); // Runs when `content` changes
+    
+    return  <CodeEditorLayout id={selectedActivity.id}  setView={setView} userKey={userKey}/>;
+  };
+
+  
   return (
     <>
     <Helmet>
       <meta charSet="utf-8" />
       <title>Python activities</title>
-      <link rel="canonical" href="http://pythonactivitis.com/" />
+      <link rel="canonical" href="http://pythonActivitis.com/" />
     </Helmet>
     <div>
       {adminPopup && (
@@ -230,11 +244,9 @@ function App() {
           </div>
         </div>
       )}
-      {step === 3 && view === "activityDetail" && selectedActivity && (
-        <>
-          <CodeEditorLayout id={selectedActivity.id}  setView={setView}/>
-        </>
-      )}
+      {step === 3 && view === "activityDetail" && selectedActivity && 
+        <TrackableComponent componentName={selectedActivity.id} content={selectedActivity.title} />
+      }
            
     </div>
     </>
