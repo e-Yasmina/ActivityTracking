@@ -4,7 +4,7 @@ import axios from "axios";
 const API_BASE_URL = "https://api-group-2ivdajogp-yasminas-projects-8e49fc39.vercel.app";
 
 const api = {
- addUser:async (formData, userKey) => {   
+ addUser:async (formData, setUserKey) => {   
     try {
         // Replace the URL with your deployed Vercel API endpoint
         const apiUrl = `${API_BASE_URL}/user/`;
@@ -15,16 +15,19 @@ const api = {
           lastName: formData.lastName,
         }, {
           headers: { "Content-Type": "application/json" } // ✅ Ensure JSON format
-        }).then(response => response.json()) // Convert response to JSON
-        .then(data => {
-            if (data.userKey) {
-                userKey = data.userKey; // Store userKey in a variable
-                console.log("User Key:", userKey);
-                localStorage.setItem("userKey", userKey); // Store in local storage for tracking
-            } else {
-                console.error("Error:", data.error);
-            }
-        })
+        });
+
+        console.log("Full Response:", response);
+        const data = response.data;
+        console.log("User Key:", data.userKey);
+        if (data.userKey) {
+           //userKey = data.userKey; // Store userKey
+           setUserKey(data.userKey); // Store userKey
+           //localStorage.setItem("userKey", userKey); // Store in local storage
+        } else {
+           console.error("Error:", data.error);
+        }
+    
       } catch (error) {
         // Handle errors
         console.error(error);
@@ -50,15 +53,29 @@ const api = {
 },
 
 // Function to update time
-  updateTime:async (userKey, timeArray) => {
+updateTime:async (userKey, activityId, timeSpent) => {
     try {
-        const response = await axios.put(`${API_BASE_URL}/user/${userKey}/time`, { time: timeArray });
+        const response = await axios.put(`${API_BASE_URL}/user/${userKey}/time`, { 
+            activityId, 
+            timeSpent 
+        });
         return response.data;
     } catch (error) {
         console.error("Error updating time:", error);
         throw error;
     }
-}
+},
+updateLiveActivity:async (userKey, activityId) => {
+    try {
+        const response = await axios.put(`${API_BASE_URL}/user/${userKey}/activity`, { 
+            activityId
+        });
+        return response.data;
+    } catch (error) {
+        console.error("Error updating live activity:", error);
+        throw error;
+    }
+},
 }
 
 export default api;

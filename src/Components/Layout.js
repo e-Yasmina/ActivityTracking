@@ -29,14 +29,14 @@ const CodeEditorLayout = ({id, setView, userKey}) => {
   const [time, setTime] = useState([]);
  
 
-  fetch(`https://api-group-2ivdajogp-yasminas-projects-8e49fc39.vercel.app/user/${userKey}`)
-  .then(response => response.json())
-  .then(data => {
-    console.log("User Data:", data);
-    setUser(data); 
-    setScore(data.score); 
-    setTime(data.time);
-  }).catch(error => console.error("Error:", error));
+  // fetch(`https://api-group-2ivdajogp-yasminas-projects-8e49fc39.vercel.app/user/${userKey}`)
+  // .then(response => response.json())
+  // .then(data => {
+  //   console.log("User Data:", data);
+  //   setUser(data); 
+  //   setScore(data.score); 
+  //   setTime(data.time);
+  // }).catch(error => console.error("Error:", error));
 
  
 

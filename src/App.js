@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "./App.css";
 import "./Components/ActivityCard/ActivityCard";
 import ActivityCard from "./Components/ActivityCard/ActivityCard";
 import CodeEditorLayout from "./Components/Layout";
 import {Helmet} from "react-helmet";
-import { CODE_SNIPPETS } from "./constants";
 import AdminLayout from "./Components/AdminLayout";
 import api from "./apiServices";
+import axios from "axios";
 
 function App() {
   
@@ -21,7 +20,7 @@ function App() {
   const [selectedActivity, setSelectedActivity] = useState(null);
   const [view, setView] = useState("activities"); // Track the current view
   
-  //const [language, setLanguage] = useState("javascript");
+
   const [value, setValue] = useState("");
   const [language, setLanguage] = useState("python");
   const [userKey, setUserKey] = useState("");
@@ -30,6 +29,7 @@ function App() {
   const [endTime, setEndTime] = useState(null);
   const [liveActivity, setLiveActivity] = useState(null);
   
+  const API_BASE_URL = "https://api-group-yasminas-projects-8e49fc39.vercel.app";
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -62,6 +62,7 @@ function App() {
       ImgT:"Secret Message Encoder",
     },
   ];
+
 
   // Handling input changes
   const handleInputChange = (e) => {
@@ -102,20 +103,47 @@ function App() {
     setLiveActivity(activity.id); // Track the current activity
   };
   
-  const onSelect = (language) => {
-    setLanguage(language);
-    setValue(CODE_SNIPPETS[language]);
-  };
   
+  //Submitting the form
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.firstName && formData.lastName) {
+      console.log("Form Data:", formData.firstName, formData.lastName);
       setStep(2); // Moving to step 2
-      api.addUser(formData, setUserKey);
+      try {
+        const apiUrl = `${API_BASE_URL}/user/`;
+
+        // Send request to backend
+        const response = await axios.post(apiUrl, { 
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+        }, {
+            headers: { "Content-Type": "application/json" } 
+        });
+
+        console.log("Full Response:", response); // ✅ Log entire response to debug
+
+        const data = response.data;
+        console.log("Response Data:", data); // ✅ Ensure userKey exists
+
+        if (data.userKey) {
+            setUserKey(data.sendedUserKey); // ✅ Store userKey
+            console.log(userKey);
+        } else {
+            console.error("Error: userKey not found in response");
+        }
+
+    } catch (error) {
+        console.error("Error adding user:", error);
+    }
+      //api.addUser(formData, setUserKey);
+      //console.log("User Key:", userKey);
     }else {
       alert("Please fill out both fields!");
     }
   };
+  
+  // Tracking the live activity
   const TrackableComponent = ({ componentName, content }) => {
     useEffect(() => {
       console.log(`${componentName} mounted`);
@@ -125,6 +153,7 @@ function App() {
         setEndTime(Date.now()); // Capture end time
         setLiveActivity(null); // Reset the current activity
         const timeSpent = endTime - startTime;
+        api.updateTime(userKey, timeSpent, selectedActivity.id);
       };
     }, []);
   

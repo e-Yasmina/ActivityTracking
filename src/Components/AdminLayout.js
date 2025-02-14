@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import LineChart from "./Chart/Chart";
 import AnimateDot from "./AnimateDots/AnimateDots";
+import StudentsList from "./StudentsList/StudentsList";
 import "./AdminLayout.css";
 
 
@@ -14,7 +15,7 @@ const AdminLayout = () => {
         const fetchStudents = async () => {
           try {
             // Replace with your actual API URL
-            const apiUrl = "https://api-group-2ivdajogp-yasminas-projects-8e49fc39.vercel.app/users/";
+            const apiUrl = "https://api-group-yasminas-projects-8e49fc39.vercel.app/users/";
             const response = await axios.get(apiUrl,);
             // axios.get("https://act-manag-ap-ij8cbgcdi-yasminas-projects-8e49fc39.vercel.app/users")
             // .then(response => console.log(response.data))
@@ -40,6 +41,7 @@ const AdminLayout = () => {
           </div>
           <div>
             <h1>Student List</h1>
+            <StudentsList items={students} />
             {loading && <p>Loading...</p>}
             {error && <p style={{ color: "red" }}>{error}</p>}
             {Array.isArray(students) && students.length > 0 ? (
@@ -52,6 +54,7 @@ const AdminLayout = () => {
               </ul>
             ) : (
             <p>There are no students.</p>
+            
         )}
             
           </div>
