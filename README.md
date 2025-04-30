@@ -82,6 +82,7 @@ src/
 ├── apiServices.js          # Functions to communicate with the server side
 ├── App.css                 # Global styles
 ├── index.js                # Entry point
+```
 
 ## API Integration
 
