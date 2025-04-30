@@ -66,6 +66,8 @@ This is a simple web application designed to manage Python activities and track 
    - Manage activities and monitor student progress.
 
 ## Folder Structure
+
+```
 src/
 ├── Components/
 │   ├── ActivityCard/       # Activity card component
