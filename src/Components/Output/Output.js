@@ -21,9 +21,15 @@ const Output = ({ output }) => {
       <div className="output-box">
         {output
           ? output.map((line, i) => (
-              <p key={i} style={{ margin: "0 0 4px" }}>
-                {line}
-              </p>
+            <p
+            key={i}
+            style={{
+              margin: "0 0 4px",
+              color: line.toLowerCase().includes("error") ? "red" : "white", // Red for errors, white for normal output
+            }}
+          >
+            {line}
+          </p>
             ))
           : 'Click "Run Code" to see the output here'}
       </div>

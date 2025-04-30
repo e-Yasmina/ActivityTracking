@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# Python Activities Management App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple web application designed to manage Python activities and track students' progress. The app includes a code editor integrated with a Python API to run and debug Python code. Each activity comes with detailed explanations, instructions, and test cases to help students practice and improve their Python programming skills.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **User Registration**: Users can enter their name and choose an avatar to personalize their experience.
+- **Activity Management**: A list of Python activities is available, each with a description, instructions, and test cases.
+- **Code Editor**: A built-in code editor allows users to write, run, and debug Python code directly in the app.
+- **Test Cases**: Each activity includes test cases to validate the user's code and provide feedback.
+- **Progress Tracking**: Tracks the time spent on each activity and stores user progress.
+- **Admin Panel**: An admin interface to manage activities and monitor student progress.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+- **Frontend**: React.js
+- **Code Editor**: Integrated with a Python API for running and debugging code.
+- **Backend API**: Axios is used to interact with the Python API for executing code and managing user data.
+- **Styling**: CSS for a clean and responsive design.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/e-Yasmina/activity-tracking.git
+   cd python-activities-app
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies:
+   ```bash
+   npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Start the development server:
+   ```bash
+   npm start
 
-### `npm run eject`
+4. Open the app in your browser:
+   ```bash
+   http://localhost:3000
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **User Registration**:
+   - Enter your first and last name.
+   - Choose an avatar to personalize your profile.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. **Select an Activity**:
+   - Browse the list of available Python activities.
+   - Click on an activity to view its details and start coding.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. **Code Editor**:
+   - Write Python code in the integrated code editor.
+   - Run your code and view the output or debug errors.
 
-## Learn More
+4. **Test Cases**:
+   - Each activity includes test cases to validate your code.
+   - Pass all test cases to complete the activity.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5. **Admin Panel**:
+   - Enter the admin password to access the admin panel.
+   - Manage activities and monitor student progress.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Folder Structure
+src/
+├── Components/
+│   ├── ActivityCard/       # Activity card component
+│   ├── AdminLayout/        # Admin panel layout
+│   ├── CodeEditor/         # Code editor component
+│   ├── Layout.js           # Main layout for activities
+│   ├── Output/             # Output display for code execution
+│   ├── StudentsList/       # List of students and their progress
+│   ├── ............        # The rest of components
+├── App.js                  # Main application file
+├── api.js                  # API to run python code
+├── apiServices.js          # Functions to communicate with the server side
+├── App.css                 # Global styles
+├── index.js                # Entry point
 
-### Code Splitting
+## API Integration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The app uses a Python API to execute and debug Python code. The API endpoints include:
 
-### Analyzing the Bundle Size
+- **Run Code**: Executes the Python code and returns the output.
+- **Test Cases**: Validates the code against predefined test cases.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## Future Enhancements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Add more activities and challenges.
+- Implement a leaderboard to track top-performing students.
+- Add support for more programming languages.
+- Enhance the admin panel with more analytics and management tools.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Acknowledgments
 
-### Deployment
+- [React.js](https://reactjs.org/) for the frontend framework.
+- [Axios](https://axios-http.com/) for API integration.
+- [Python API](https://emkc.org/api/v2/piston) for running and debugging Python code.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Enjoy coding and learning Python with the **Python Activities Management App**! 🚀
