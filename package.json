@@ -2,7 +2,7 @@
   "name": "activities-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://e-yasmina.github.io/ActivityTracking",
+  "homepage": "https://e-yasmina.github.io/activity-tracking",
   "dependencies": {
     "@chakra-ui/react": "^3.2.1",
     "@emotion/react": "^11.13.5",

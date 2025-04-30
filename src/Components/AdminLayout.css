@@ -2,24 +2,45 @@
     width: 100vw; 
     height: 100vh;
     display: flex;
-    flex-direction:row;
-    justify-content: center;
+    flex-direction:row;     
     background-color: #161540;
     background-size: cover;
     overflow: hidden;
+    padding-top: 2%;
 }
+.deviser{
+    width: 100%;
+    padding: 2rem;
+    display: flex; /* Align children horizontally */
+    justify-content: space-between; /* Add space between the chart and the students list */
+    align-items: flex-start; /* Align items to the top */
+    gap: 1rem; /* Optional: Add spacing between the containers */
+    margin-top: 4rem; 
+
+}
+.students-list-container {
+    flex: 1;
+}
+.admin-layout h1{
+    color: white;
+    font-family: 'Gloria Hallelujah', cursive;
+    border-bottom: white solid 1px; 
+}
+
 .chart-container{
-    display: flex;
-    width: 60%;
+    /* display: flex; */
+    flex: 2;
+    width: 50%;
     height: 60%;
-    padding: 5%;
+    padding: 3%;
     border: 2px solid rgba(235, 235, 235, .35);
     border-radius: 20px;
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: 12px;
     background: rgba(187, 205, 189, .25);
     transition: all .25s ease;
-    position: absolute;
+    box-shadow: 0.25rem 0.25rem 0.75rem rgba(253, 252, 252, 0.15);
+    /* position: absolute;
     left: 2%;
-    top: 15%;
+    top: 15%; */
 }

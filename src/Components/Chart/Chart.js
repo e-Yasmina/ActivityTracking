@@ -37,8 +37,12 @@ const LineChart = () => {
         data: [
           { x: "00:00", y: 0,  name: ""},
           { x: "01:00", y: 40, name: "Alice" },
-          { x: "02:00", y: 70, name: "Bob" },
-          { x: "03:00", y: 80, name: "Charlie" },
+          { x: "02:00", y: 30, name: "Bob" },
+          { x: "03:00", y: 50, name: "John" },
+          { x: "04:00", y: 80, name: "Charlie" },
+          { x: "05:00", y: 50, name: "Jane" },
+          { x: "06:00", y: 0,  name: ""},
+          
         ],
         borderColor: "#BDE0FE",
         backgroundColor: "lightblue",

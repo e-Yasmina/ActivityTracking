@@ -75,6 +75,7 @@
   text-align: center;
   padding: 20px;
   width: 100%; 
+  color: white;
 }
 
 .welcome-screen header {
@@ -83,6 +84,7 @@
   justify-content: flex-start;
   gap: 10px;
   margin-bottom: 20px;
+  
 }
 
 .user-avatar {
